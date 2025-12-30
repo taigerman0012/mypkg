@@ -7,9 +7,9 @@
 <package format="3">
   <name>mypkg</name>
   <version>0.0.0</version>
-  <description>TODO:ロボットシステム学</description>
+  <description>ロボットシステム学</description>
   <maintainer email="s24C1087re@s.chibakoudai.jp">abcd0315</maintainer>
-  <license>TODO:BSD-3-Clause</license>
+  <license>BSD-3-Clause</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
