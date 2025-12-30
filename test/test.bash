@@ -6,6 +6,7 @@ dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
+rm -rf build install log
 colcon build
 source $dir/.bashrc
 source install/setup.bash  
