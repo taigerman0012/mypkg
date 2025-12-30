@@ -1,20 +1,22 @@
 #!/bin/bash
-
 dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
 
-# ★目印を追加
-echo "=== NEW TEST START ==="
+# ▼▼▼ 追加する行 ▼▼▼
+# 以前のビルド情報や、rsyncでコピーされた不要なファイルを削除します
+rm -rf build install log
+# ▲▲▲ 追加する行 ▲▲▲
 
-# 1. ROS 2の基本設定（ビルドの前！）
+# ROS 2の基本設定
 source /opt/ros/humble/setup.bash
 
+# ビルド実行
 colcon build
 
-# 2. 自分のパッケージ設定
-source $dir/ros2_ws/install/setup.bash
+# 自身のパッケージ設定読み込み
+source install/setup.bash
 
-timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
-cat /tmp/mypkg.log | grep 'Listen: 10' 
+# launch実行
+timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log 
